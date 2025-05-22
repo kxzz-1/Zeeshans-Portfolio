@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zeeshan's Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #181818 0%, #222 100%);
+            color: #fff;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 13px 5vw;
+            background: linear-gradient(90deg, #e5ff00 60%, #fff700 100%);
+            box-shadow: 0 2px 12px rgba(229, 255, 0, 0.09);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            list-style: none;
+            margin: 0 20px;
+            font-size: 18px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #000;
+            font-weight: 500;
+            transition: color 0.2s, border-bottom 0.2s;
+            padding-bottom: 2px;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav ul li a:hover {
+            color: orangered;
+            border-bottom: 2px solid orangered;
+        }
+
+        .left {
+            font-size: 1.7rem;
+           
+            letter-spacing: 1px;
+        }
+
+        main {
+            width: 100%;
+        }
+
+        section {
+            padding: 60px 0 40px 0;
+            position: relative;
+        }
+
+        section:not(:first-child)::before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 10%;
+            width: 80%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #e5ff00 50%, transparent);
+            opacity: 0.2;
+        }
+
+        .firstSection {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            min-height: 80vh;
+            flex-wrap: wrap;
+        }
+
+        .firstSection > div {
+            width: 40%;
+            min-width: 300px;
+        }
+
+        .leftSection {
+            margin: 50px 0;
+            font-size: 2.5rem;
+            color: white;
+            margin-left: 40px;
+            font-weight: 400;
+            line-height: 1.2;
+            letter-spacing: 1px;
+            animation: fadeInLeft 1.2s;
+        }
+
+        .rightSection {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .rightSection img {
+            width: 260px;
+            height: 260px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 6px solid #e5ff00;
+            box-shadow: 0 8px 32px rgba(229, 255, 0, 0.18);
+            background: #fff;
+            animation: fadeInRight 1.2s;
+        }
+
+        .yellow {
+            color: #e5ff00;
+        }
+
+        #element {
+            color: #e5ff00;
+            font-weight: 500;
+        }
+
+        .aboutSection {
+            max-width: 80vw;
+            margin: 40px auto 0 auto;
+            background: #181818;
+            border-radius: 18px;
+            padding: 48px 36px;
+            box-shadow: 0 4px 24px rgba(229, 255, 0, 0.09);
+            animation: fadeInUp 1.2s;
+        }
+
+        .aboutSection h2 {
+            color: #e5ff00;
+            font-size: 2.2rem;
+            margin-bottom: 18px;
+            letter-spacing: 1px;
+        }
+
+        .aboutSection p {
+            font-size: 1.18rem;
+            line-height: 1.8;
+            color: #fff;
+            opacity: 0.95;
+        }
+
+        .skillsSection {
+            max-width: 80vw;
+            margin: 40px auto 0 auto;
+            background: #222;
+            border-radius: 18px;
+            padding: 48px 36px;
+            box-shadow: 0 4px 24px rgba(229, 255, 0, 0.09);
+            animation: fadeInUp 1.2s;
+        }
+
+        .skillsSection h2 {
+            color: #e5ff00;
+            font-size: 2.2rem;
+            margin-bottom: 18px;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        .skill-item {
+            background: linear-gradient(90deg, #e5ff00 80%, #fff700 100%);
+            color: #000;
+            padding: 12px 26px;
+            border-radius: 22px;
+            font-weight: 600;
+            font-size: 1.08rem;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 8px rgba(229, 255, 0, 0.13);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .skill-item:hover {
+            transform: scale(1.08);
+            box-shadow: 0 4px 16px rgba(229, 255, 0, 0.18);
+        }
+
+        .projectsSection {
+            max-width: 80vw;
+            margin: 40px auto 0 auto;
+            background: #181818;
+            border-radius: 18px;
+            padding: 48px 36px;
+            box-shadow: 0 4px 24px rgba(229, 255, 0, 0.09);
+            animation: fadeInUp 1.2s;
+        }
+
+        .projectsSection h2 {
+            color: #e5ff00;
+            font-size: 2.2rem;
+            margin-bottom: 18px;
+        }
+
+        .projects-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: flex-start;
+        }
+
+        .project-card {
+            background: #222;
+            border-radius: 16px;
+            padding: 28px 22px;
+            width: 320px;
+            box-shadow: 0 6px 24px rgba(229, 255, 0, 0.13);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 2px solid transparent;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px) scale(1.04);
+            box-shadow: 0 12px 32px rgba(229, 255, 0, 0.18);
+            border: 2px solid #e5ff00;
+        }
+
+        .project-title {
+            color: #e5ff00;
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .project-desc {
+            color: #fff;
+            font-size: 1.08rem;
+            margin-bottom: 14px;
+            opacity: 0.93;
+        }
+
+        .project-link {
+            color: orangered;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.2s;
+            border-bottom: 1.5px solid transparent;
+            padding-bottom: 2px;
+        }
+
+        .project-link:hover {
+            color: #e5ff00;
+            border-bottom: 1.5px solid #e5ff00;
+        }
+
+        .contactSection {
+            max-width: 80vw;
+            margin: 40px auto 0 auto;
+            background: #222;
+            border-radius: 18px;
+            padding: 48px 36px;
+            box-shadow: 0 4px 24px rgba(229, 255, 0, 0.09);
+            animation: fadeInUp 1.2s;
+        }
+
+        .contactSection h2 {
+            color: #e5ff00;
+            font-size: 2.2rem;
+            margin-bottom: 18px;
+        }
+
+        .contact-details {
+            color: #fff;
+            font-size: 1.15rem;
+            margin-bottom: 10px;
+            opacity: 0.93;
+        }
+
+        .contact-links a {
+            color: orangered;
+            text-decoration: none;
+            margin-right: 18px;
+            font-weight: 600;
+            font-size: 1.08rem;
+            transition: color 0.2s, border-bottom 0.2s;
+            border-bottom: 1.5px solid transparent;
+            padding-bottom: 2px;
+        }
+
+        .contact-links a:hover {
+            color: #e5ff00;
+            border-bottom: 1.5px solid #e5ff00;
+        }
+
+        footer {
+            background: #181818;
+            color: #e5ff00;
+            text-align: center;
+            padding: 18px 0 10px 0;
+            font-size: 1.05rem;
+            letter-spacing: 1px;
+            margin-top: 40px;
+            border-radius: 16px 16px 0 0;
+            box-shadow: 0 -2px 12px rgba(229, 255, 0, 0.07);
+        }
+
+        /* Animations */
+        @keyframes fadeInLeft {
+            from { opacity: 0; transform: translateX(-40px);}
+            to { opacity: 1; transform: translateX(0);}
+        }
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(40px);}
+            to { opacity: 1; transform: translateX(0);}
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px);}
+            to { opacity: 1; transform: translateY(0);}
+        }
+
+        /* Reveal on scroll */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 900px) {
+            .firstSection {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .firstSection > div {
+                width: 90%;
+                margin: 0 auto;
+            }
+            .leftSection {
+                margin-left: 0;
+            }
+            .rightSection {
+                text-align: center;
+            }
+            .projects-list {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .aboutSection,
+            .skillsSection,
+            .projectsSection,
+            .contactSection {
+                padding: 24px 10px;
+            }
+            .project-card {
+                width: 100%;
+            }
+            .rightSection img {
+                width: 160px;
+                height: 160px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="left">Zeeshan's Portfolio</div>
+            <div class="right">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="firstSection" id="home">
+            <div class="leftSection">
+                Hi, my name is <span class="yellow">Zeeshan</span>
+                <div>and I'm a passionate</div>
+                <span id="element"></span>
+            </div>
+            <div class="rightSection">
+                <img src="bg.png" alt="Profile Picture">
+            </div>
+        </section>
+
+        <section class="aboutSection reveal" id="about">
+            <h2>About Me</h2>
+            <p>
+I'm a curious and driven student at COMSATS University Islamabad, navigating the exciting world of digital innovation. My passion spans web development, artificial intelligence, and software engineering, where I love tackling challenges, creating impactful solutions, and enhancing my skills with every project.
+                I believe in the power of technology to transform lives and am excited to be part of this journey. Let's connect and explore the endless possibilities together!
+                
+            </p>
+        </section>
+
+        <section class="skillsSection reveal" id="skills">
+            <h2>Skills</h2>
+            <div class="skills-list">
+                <div class="skill-item">Python</div>
+                <div class="skill-item">Java</div>
+                <div class="skill-item">HTML &amp; CSS</div>
+                <div class="skill-item">AI/ML</div>
+                <div class="skill-item">Django</div>
+                <div class="skill-item">OpenCV</div>
+                <div class="skill-item">Mediapipe</div>
+                <div class="skill-item">Git &amp; GitHub</div>
+            </div>
+        </section>
+
+        <section class="projectsSection reveal" id="projects">
+            <h2>Projects</h2>
+            <div class="projects-list">
+                <div class="project-card">
+                    <div class="project-title">Sleepy Student Detector</div>
+                    <div class="project-desc">
+                        A real-time webcam app that detects if a person is closing their eyes (falling asleep) while studying and can keep them awake with alerting noise, using Python, OpenCV, and Mediapipe.
+                    </div>
+                    <a class="project-link" href="#" target="_blank">View Project</a>
+                </div>
+                <div class="project-card">
+                    <div class="project-title">REMS</div>
+                    <div class="project-desc">
+The Real Estate Management System (REMS) is a comprehensive platform. Whether you're a buyer, seller, landlord, or tenant, REMS handles transactions, property listings, lease receipts, and more.
+                    </div>
+                    <a class="project-link" href="#" target="_blank">View Project</a>
+                </div>
+                <div class="project-card">
+                    <div class="project-title">Pacman</div>
+                    <div class="project-desc">
+A Pac-Man game featuring dynamic ghost AI, smooth player controls, and responsive gameplay. Integrated retro-inspired visuals and sound effects to recreate the classic arcade experience while showcasing programming and game design skills.                    </div>
+                    <a class="project-link" href="#" target="_blank">View Project</a>
+                </div>
+                 <div class="projects-list">
+                <div class="project-card">
+                    <div class="project-title">Virtual Painter</div>
+                    <div class="project-desc">
+A Virtual Painter using webcam to allow users to draw on a digital canvas with real-world gestures. Leveraged OpenCV, mediapipe, numpy to track hand movements and color selection.                    </div>
+                    <a class="project-link" href="#" target="_blank">View Project</a>
+                </div>
+                
+            </div>
+        </section>
+
+        <section class="contactSection reveal" id="contact">
+            <h2>Contact</h2>
+            <div class="contact-details">
+                <div>Email: khzeeshan111205@gmail.com</div>
+                
+            </div>
+            <div class="contact-links">
+                <a href="https://github.com/kxzz-1" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/in/kxzz" target="_blank">LinkedIn</a>
+                <a href="mailto:khzeeshan111205@gmail.com">Email Me</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2025 Zeeshan. All rights reserved.
+    </footer>
+
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        var typed = new Typed('#element', {
+            strings: ['Web Developer', 'Software Engineer', 'AI Enthusiast'],
+            typeSpeed: 50,
+            backSpeed: 30,
+            loop: true
+        });
+
+        // Reveal on scroll
+        function revealOnScroll() {
+            var reveals = document.querySelectorAll('.reveal');
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 120;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('DOMContentLoaded', revealOnScroll);
+    </script>
+</body>
+
+</html>
